@@ -1,32 +1,68 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Layout, Lightbulb } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const About = () => {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Adiciona um delay crescente para cada card
+            setTimeout(() => {
+              entry.target.classList.add("opacity-100", "translate-y-0");
+              entry.target.classList.remove("opacity-0", "translate-y-10");
+            }, 200 * index);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      cardRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
+
   return (
-    <section id="sobre" className="py-20">
+    <section id="sobre" className="py-20 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="animate-slide-up">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Sobre Mim</h2>
-            <p className="text-gray-600 mb-6">
+          <div className="space-y-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 relative overflow-hidden">
+              <span className="inline-block animate-[slide-right_0.5s_ease-out]">Sobre Mim</span>
+              <span className="absolute bottom-0 left-0 w-10 h-1 bg-gray-800 animate-[width-expand_0.7s_ease-out_forwards]"></span>
+            </h2>
+            <p className="text-gray-600 mb-6 animate-[fade-in_0.6s_ease-out]">
               Olá! Sou um desenvolvedor apaixonado por criar interfaces limpas e funcionais que proporcionam excelentes experiências aos usuários.
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 animate-[fade-in_0.8s_ease-out]">
               Com mais de 2 anos de experiência no mercado, trabalhei em diversos projetos para startups e empresas estabelecidas, sempre buscando unir estética e funcionalidade.
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-600 animate-[fade-in_1s_ease-out]">
               Meu objetivo é transformar ideias complexas em soluções simples e funcionais que atendam às necessidades dos clientes e encantem os usuários finais.
             </p>
           </div>
           
-          <div className="space-y-4 animate-slide-up">
-            <Card>
-              <CardContent className="flex items-start p-6">
-                <div className="mr-4 bg-gray-100 p-3 rounded-full">
-                  <Layout size={24} className="text-gray-800" />
+          <div className="space-y-4">
+            <Card 
+              ref={(el) => (cardRefs.current[0] = el)}
+              className="opacity-0 translate-y-10 transition-all duration-500"
+            >
+              <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
+                <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                  <Layout size={24} className="text-gray-800 animate-pulse" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="font-medium text-lg mb-2">Design de UI/UX</h3>
                   <p className="text-gray-600">
                     Criação de interfaces intuitivas e agradáveis, com foco na experiência do usuário.
@@ -35,12 +71,15 @@ const About = () => {
               </CardContent>
             </Card>
             
-            <Card>
-              <CardContent className="flex items-start p-6">
-                <div className="mr-4 bg-gray-100 p-3 rounded-full">
-                  <Code size={24} className="text-gray-800" />
+            <Card 
+              ref={(el) => (cardRefs.current[1] = el)}
+              className="opacity-0 translate-y-10 transition-all duration-500"
+            >
+              <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
+                <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                  <Code size={24} className="text-gray-800 animate-pulse" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="font-medium text-lg mb-2">Desenvolvimento Web</h3>
                   <p className="text-gray-600">
                     Implementação de aplicações web responsivas utilizando tecnologias modernas.
@@ -49,12 +88,15 @@ const About = () => {
               </CardContent>
             </Card>
             
-            <Card>
-              <CardContent className="flex items-start p-6">
-                <div className="mr-4 bg-gray-100 p-3 rounded-full">
-                  <Lightbulb size={24} className="text-gray-800" />
+            <Card 
+              ref={(el) => (cardRefs.current[2] = el)}
+              className="opacity-0 translate-y-10 transition-all duration-500"
+            >
+              <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
+                <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                  <Lightbulb size={24} className="text-gray-800 animate-pulse" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="font-medium text-lg mb-2">Consultoria Criativa</h3>
                   <p className="text-gray-600">
                     Orientação estratégica para ajudar marcas a definirem sua presença digital.
