@@ -13,12 +13,6 @@ const Footer = () => {
               © {currentYear} Giovanni. Todos os direitos reservados.
             </p>
           </div>
-          
-          <div className="flex items-center text-sm text-gray-600">
-            <span>Feito com</span>
-            <Heart size={14} className="mx-1 text-red-500" />
-            <span>no Brasil</span>
-          </div>
         </div>
       </div>
     </footer>

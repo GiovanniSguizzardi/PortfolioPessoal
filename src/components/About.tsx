@@ -2,6 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Container, Database, Server, Wrench } from "lucide-react";
 import { useEffect, useRef } from "react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const About = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -34,6 +35,7 @@ const About = () => {
   }, []);
 
   return (
+    <AnimatedSection>
     <section id="sobre" className="py-20 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -43,7 +45,7 @@ const About = () => {
               <span className="absolute bottom-0 left-0 w-10 h-1 bg-gray-800 animate-[width-expand_0.7s_ease-out_forwards]"></span>
             </h2>
             <p className="text-gray-600 mb-6 animate-[fade-in_0.6s_ease-out]">
-              Olá! Sou Giovanni, um desenvolvedor apaixonado por tecnologia, especializado em várias linguagens e plataformas que me permitem criar soluções eficientes e escaláveis.
+            Olá! Me chamo Giovanni, e sou formado em Análise e Desenvolvimento de Sistemas e atualmente cursando Sistemas de Informação, além de um desenvolvedor apaixonado por tecnologia, especializado em várias linguagens e plataformas que me permitem criar soluções eficientes e escaláveis.
             </p>
             <p className="text-gray-600 mb-6 animate-[fade-in_0.8s_ease-out]">
               Com mais de 2 anos de experiência no mercado, desenvolvi projetos utilizando Python para análise de dados, Java para aplicações empresariais, e implementei soluções em contêineres com Docker.
@@ -125,6 +127,7 @@ const About = () => {
         </div>
       </div>
     </section>
+    </AnimatedSection>
   );
 };
 

@@ -1,18 +1,19 @@
 
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
+    <AnimatedSection>
     <header className="fixed w-full bg-white/80 backdrop-blur-sm z-50 py-4">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a href="#" className="text-lg font-medium">
-            giovanni.com
+            gibas.dev
           </a>
           
           {/* Mobile menu button */}
@@ -76,6 +77,7 @@ const Navbar = () => {
         )}
       </div>
     </header>
+    </AnimatedSection>
   );
 };
 
