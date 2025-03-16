@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center animate-fade-in">
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-            Olá, eu sou <span className="text-gray-800">Seu Nome</span>
+            Olá, eu sou <span className="text-gray-800">Giovanni</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8">
             Designer & Desenvolvedor
