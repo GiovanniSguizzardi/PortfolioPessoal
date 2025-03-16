@@ -10,13 +10,13 @@ const About = () => {
           <div className="animate-slide-up">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Sobre Mim</h2>
             <p className="text-gray-600 mb-6">
-              Olá! Sou um designer e desenvolvedor apaixonado por criar interfaces limpas e funcionais que proporcionam excelentes experiências aos usuários.
+              Olá! Sou um desenvolvedor apaixonado por criar interfaces limpas e funcionais que proporcionam excelentes experiências aos usuários.
             </p>
             <p className="text-gray-600 mb-6">
-              Com mais de 5 anos de experiência no mercado, trabalhei em diversos projetos para startups e empresas estabelecidas, sempre buscando unir estética e funcionalidade.
+              Com mais de 2 anos de experiência no mercado, trabalhei em diversos projetos para startups e empresas estabelecidas, sempre buscando unir estética e funcionalidade.
             </p>
             <p className="text-gray-600">
-              Meu objetivo é transformar ideias complexas em soluções simples e elegantes que atendam às necessidades dos clientes e encantem os usuários finais.
+              Meu objetivo é transformar ideias complexas em soluções simples e funcionais que atendam às necessidades dos clientes e encantem os usuários finais.
             </p>
           </div>
           
