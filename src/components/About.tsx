@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Layout, Lightbulb } from "lucide-react";
+import { Code, Container, Database, Server, Wrench } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const About = () => {
@@ -43,13 +43,13 @@ const About = () => {
               <span className="absolute bottom-0 left-0 w-10 h-1 bg-gray-800 animate-[width-expand_0.7s_ease-out_forwards]"></span>
             </h2>
             <p className="text-gray-600 mb-6 animate-[fade-in_0.6s_ease-out]">
-              Olá! Sou um desenvolvedor apaixonado por criar interfaces limpas e funcionais que proporcionam excelentes experiências aos usuários.
+              Olá! Sou Giovanni, um desenvolvedor apaixonado por tecnologia, especializado em várias linguagens e plataformas que me permitem criar soluções eficientes e escaláveis.
             </p>
             <p className="text-gray-600 mb-6 animate-[fade-in_0.8s_ease-out]">
-              Com mais de 2 anos de experiência no mercado, trabalhei em diversos projetos para startups e empresas estabelecidas, sempre buscando unir estética e funcionalidade.
+              Com mais de 2 anos de experiência no mercado, desenvolvi projetos utilizando Python para análise de dados, Java para aplicações empresariais, e implementei soluções em contêineres com Docker.
             </p>
             <p className="text-gray-600 animate-[fade-in_1s_ease-out]">
-              Meu objetivo é transformar ideias complexas em soluções simples e funcionais que atendam às necessidades dos clientes e encantem os usuários finais.
+              Meu objetivo é construir aplicações robustas e eficientes que resolvam problemas complexos e ofereçam excelentes experiências para os usuários finais.
             </p>
           </div>
           
@@ -60,12 +60,12 @@ const About = () => {
             >
               <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
                 <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
-                  <Layout size={24} className="text-gray-800 animate-pulse" />
+                  <Code size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">Design de UI/UX</h3>
+                  <h3 className="font-medium text-lg mb-2">Python & Java</h3>
                   <p className="text-gray-600">
-                    Criação de interfaces intuitivas e agradáveis, com foco na experiência do usuário.
+                    Desenvolvimento de aplicações escaláveis em Python e sistemas robustos em Java com foco em performance.
                   </p>
                 </div>
               </CardContent>
@@ -77,12 +77,12 @@ const About = () => {
             >
               <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
                 <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
-                  <Code size={24} className="text-gray-800 animate-pulse" />
+                  <Container size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">Desenvolvimento Web</h3>
+                  <h3 className="font-medium text-lg mb-2">Docker & DevOps</h3>
                   <p className="text-gray-600">
-                    Implementação de aplicações web responsivas utilizando tecnologias modernas.
+                    Containerização de aplicações, orquestração com Kubernetes e implementação de pipelines CI/CD.
                   </p>
                 </div>
               </CardContent>
@@ -94,12 +94,29 @@ const About = () => {
             >
               <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
                 <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
-                  <Lightbulb size={24} className="text-gray-800 animate-pulse" />
+                  <Database size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">Consultoria Criativa</h3>
+                  <h3 className="font-medium text-lg mb-2">.NET & Kotlin</h3>
                   <p className="text-gray-600">
-                    Orientação estratégica para ajudar marcas a definirem sua presença digital.
+                    Desenvolvimento de aplicações web com .NET Core e aplicativos móveis nativos com Kotlin.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card 
+              ref={(el) => (cardRefs.current[3] = el)}
+              className="opacity-0 translate-y-10 transition-all duration-500"
+            >
+              <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
+                <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
+                  <Server size={24} className="text-gray-800 animate-pulse" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-medium text-lg mb-2">Arquitetura de Software</h3>
+                  <p className="text-gray-600">
+                    Implementação de microsserviços, sistemas distribuídos e aplicações cloud-native.
                   </p>
                 </div>
               </CardContent>
