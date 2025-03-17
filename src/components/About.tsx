@@ -12,7 +12,6 @@ const About = () => {
       (entries) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            // Adiciona um delay crescente para cada card
             setTimeout(() => {
               entry.target.classList.add("opacity-100", "translate-y-0");
               entry.target.classList.remove("opacity-0", "translate-y-10");
@@ -37,12 +36,12 @@ const About = () => {
   return (
     <AnimatedSection>
     <section id="sobre" className="py-20 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 relative overflow-hidden">
               <span className="inline-block animate-[slide-right_0.5s_ease-out]">Sobre Mim</span>
-              <span className="absolute bottom-0 left-0 w-10 h-1 bg-gray-800 animate-[width-expand_0.7s_ease-out_forwards]"></span>
+              <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-gray-800 animate-[width-expand_0.7s_ease-out_forwards]"></span>
             </h2>
             <p className="text-gray-600 mb-6 animate-[fade-in_0.6s_ease-out]">
             Olá! Me chamo Giovanni, e sou formado em Análise e Desenvolvimento de Sistemas e atualmente cursando Sistemas de Informação, além de um desenvolvedor apaixonado por tecnologia, especializado em várias linguagens e plataformas que me permitem criar soluções eficientes e escaláveis.
@@ -55,7 +54,7 @@ const About = () => {
             </p>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-5">
             <Card 
               ref={(el) => (cardRefs.current[0] = el)}
               className="opacity-0 translate-y-10 transition-all duration-500"
@@ -65,7 +64,7 @@ const About = () => {
                   <Code size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">Python & Java</h3>
+                  <h3 className="font-medium text-lg">Python & Java</h3>
                   <p className="text-gray-600">
                     Desenvolvimento de aplicações escaláveis em Python e sistemas robustos em Java com foco em performance.
                   </p>
@@ -82,7 +81,7 @@ const About = () => {
                   <Container size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">Docker & DevOps</h3>
+                  <h3 className="font-medium text-lg">Docker & DevOps</h3>
                   <p className="text-gray-600">
                     Containerização de aplicações, orquestração com Kubernetes e implementação de pipelines CI/CD.
                   </p>
@@ -99,7 +98,7 @@ const About = () => {
                   <Database size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">.NET & Kotlin</h3>
+                  <h3 className="font-medium text-lg">.NET & Kotlin</h3>
                   <p className="text-gray-600">
                     Desenvolvimento de aplicações web com .NET Core e aplicativos móveis nativos com Kotlin.
                   </p>
@@ -109,14 +108,13 @@ const About = () => {
 
             <Card 
               ref={(el) => (cardRefs.current[3] = el)}
-              className="opacity-0 translate-y-10 transition-all duration-500"
-            >
+              className="opacity-0 translate-y-10 transition-all duration-500">
               <CardContent className="flex items-start p-6 hover:shadow-md transition-shadow">
                 <div className="mr-4 bg-gray-100 p-3 rounded-full hover:bg-gray-200 transition-colors">
                   <Server size={24} className="text-gray-800 animate-pulse" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-lg mb-2">Arquitetura de Software</h3>
+                  <h3 className="font-medium text-lg">Arquitetura de Software</h3>
                   <p className="text-gray-600">
                     Implementação de microsserviços, sistemas distribuídos e aplicações cloud-native.
                   </p>

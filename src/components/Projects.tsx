@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 interface Project {
@@ -39,7 +39,7 @@ const projects: Project[] = [
   {
     id: 4,
     title: "Sistema de Gerenciamento de Processos Aduaneiros",
-    description: "Um sistema web desenvolvido em Flask para gerenciar processos de importação/exportação, permitindo o upload, consulta e gerenciamento de planilhas e documentos anexados por CNPJ.",
+    description: "Um sistema web desenvolvido em Flask para gerenciar processos de importação/exportação.",
     category: "Python",
     image: "https://images.pexels.com/photos/4440788/pexels-photo-4440788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "https://github.com/GiovanniSguizzardi/SistemaGerencidorProcessosAduaneiros",
@@ -53,9 +53,6 @@ const Projects = () => {
       <div className="container mx-auto px-4 md:px-10">
         <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Projetos Selecionados</h2>
-          <p className="text-gray-600">
-            Uma seleção dos meus trabalhos recentes...
-          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -88,6 +85,17 @@ const Projects = () => {
             </Card>
           ))}
         </div>
+
+        <div className="mt-5 text-center">
+            <a
+              href="https://github.com/GiovanniSguizzardi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 text-lg font-semibold text-white bg-purple-900 rounded-full hover:bg-purple-600 transition-transform transform hover:scale-105 shadow-lg">
+              <Github size={24} className="text-white" />
+              Ver mais no GitHub
+            </a>
+          </div>
       </div>
     </section>
     </AnimatedSection>

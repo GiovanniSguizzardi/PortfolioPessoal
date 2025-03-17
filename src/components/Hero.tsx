@@ -21,10 +21,10 @@ const Hero = () => {
             Criando experiências digitais elegantes e funcionais com foco em design minimalista e usabilidade.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button asChild variant="default" className="rounded-full px-6">
+            <Button asChild variant="default" className="bg-purple-800 rounded-full px-6">
               <a href="#projetos">Ver Projetos</a>
             </Button>
-            <Button asChild variant="default" className="rounded-full px-6">
+            <Button asChild variant="default" className="bg-purple-800 rounded-full px-6">
               <a href="#contato">Entre em Contato</a>
             </Button>
           </div>

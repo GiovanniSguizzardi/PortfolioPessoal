@@ -2,11 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 import AnimatedSection from "@/components/AnimatedSection";
+import CustomButton from "@/components/ui/CustomButton";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -66,11 +67,11 @@ const Contact = () => {
           <div className="space-y-6">
             <div className="flex items-start">
               <div className="mr-4 bg-gray-100 p-3 rounded-full">
-                <Mail size={20} className="text-gray-800" />
+                <Mail size={25} className="text-gray-800" />
               </div>
               <div>
                 <h3 className="font-medium mb-1">Email</h3>
-                <a href="giovanni.sguiconde@gmail.com" className="text-gray-600 hover:text-gray-900">
+                <a className="text-gray-600 hover:text-gray-900">
                   giovanni.sguiconde@gmail.com
                 </a>
               </div>
@@ -78,7 +79,7 @@ const Contact = () => {
             
             <div className="flex items-start">
               <div className="mr-4 bg-gray-100 p-3 rounded-full">
-                <MapPin size={20} className="text-gray-800" />
+                <MapPin size={25} className="text-gray-800" />
               </div>
               <div>
                 <h3 className="font-medium mb-1">Localização</h3>
@@ -119,9 +120,7 @@ const Contact = () => {
                 className="min-h-[120px] bg-white"
               />
             </div>
-            <Button type="submit" className="w-full rounded-full">
-              Enviar Mensagem
-            </Button>
+            <CustomButton type="submit" text="Enviar Mensagem" />
           </form>
         </div>
       </div>
