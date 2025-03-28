@@ -67,7 +67,7 @@ const Navbar = () => {
             <a href="https://www.linkedin.com/in/giovanni-sguizzardi/" target="_blank" rel="noopener noreferrer">
               <Linkedin size={24} className="text-gray-700 hover:text-blue-600 transition-colors" />
             </a>
-            <a href="https://drive.google.com/file/d/1ZvkpfgoRT_wQi7f_27QcOcl5ZEihuGTj/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1VCIoaEILVbL9TcQ50c2nh9jwIjwfECQ6/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <FileText size={24} className="text-gray-700 hover:text-purple-600 transition-colors" />
             </a>
           </div>
