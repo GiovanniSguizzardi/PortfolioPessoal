@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, FileText } from "lucide-react";
 
@@ -40,7 +41,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="text-lg font-medium">
-            gibas.dev
+            giovanni.com
           </a>
 
           {/* Desktop navigation */}
@@ -50,6 +51,9 @@ const Navbar = () => {
             </a>
             <a href="#projetos" className="text-sm font-medium hover:text-gray-600 transition-colors">
               Projetos
+            </a>
+            <a href="#minecraft" className="text-sm font-medium hover:text-gray-600 transition-colors">
+              Minecraft
             </a>
             <a href="#sobre" className="text-sm font-medium hover:text-gray-600 transition-colors">
               Sobre
@@ -90,6 +94,9 @@ const Navbar = () => {
             </a>
             <a href="#projetos" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
               Projetos
+            </a>
+            <a href="#minecraft" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
+              Minecraft
             </a>
             <a href="#sobre" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
               Sobre
