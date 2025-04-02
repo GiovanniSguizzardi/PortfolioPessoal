@@ -15,27 +15,27 @@ interface Plugin {
 const plugins: Plugin[] = [
   {
     id: 1,
-    title: "EconomyPlus",
+    title: "GibasWarps",
     description: "Um plugin completo de economia para servidores Minecraft com sistema de lojas, banco e transações entre jogadores.",
-    features: ["Sistema de banco", "Lojas virtuais", "Comandos de admin", "Integração com outros plugins"],
-    image: "https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/GiovanniSguizzardi/EconomyPlus",
+    features: ["Teleporte entre mundos", "Customização", "Comandos de admin", "Integração com GUI"],
+    image: "https://i.ibb.co/ksYYfyws/minecraft-warps.png",
+    link: "https://github.com/GiovanniSguizzardi/GibasWarpPlugin",
   },
   {
     id: 2,
-    title: "BetterSurvival",
-    description: "Melhora a experiência de sobrevivência com novas mecânicas, itens especiais e sistemas de craftings customizados.",
-    features: ["Itens customizados", "Receitas especiais", "Mobs únicos", "Sistema de níveis"],
-    image: "https://images.pexels.com/photos/262543/pexels-photo-262543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/GiovanniSguizzardi/BetterSurvival",
+    title: "GibasChat",
+    description: "Melhora a experiência do usuario no servidor, com um chat totalmente customizável.",
+    features: ["Chat customizado", "Chat local", "Chat global", "Sistema de mensagem privada"],
+    image: "https://i.ibb.co/G4VnJVBj/minecraft-chat.png",
+    link: "https://github.com/GiovanniSguizzardi/GibasChatPlugin",
   },
   {
     id: 3,
-    title: "ServerManager",
-    description: "Ferramentas administrativas avançadas para gerenciar servidores Minecraft com facilidade e eficiência.",
-    features: ["Painel admin", "Sistema de logs", "Gerenciamento de permissões", "Backup automático"],
-    image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "https://github.com/GiovanniSguizzardi/ServerManager",
+    title: "GibasWelcomeMessage",
+    description: "Um plugin que manda uma mensagem personalizada a cada vez que o usuario entra no servidor.",
+    features: ["Painel admin", "Sistema de personalização", "Gerenciamento de permissões"],
+    image: "https://i.ibb.co/dsKDqQ2p/minecraft-welcome.png",
+    link: "https://github.com/GiovanniSguizzardi/GibasWelcomeMessagePlugin",
   },
 ];
 
@@ -59,7 +59,7 @@ const MinecraftPlugins = () => {
                     <img 
                       src={plugin.image} 
                       alt={plugin.title} 
-                      className="w-full h-48 object-cover"
+                      className="w-full h-35 object-fit"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <a 
@@ -73,11 +73,11 @@ const MinecraftPlugins = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-2 mb-10">
                       <Server size={20} className="text-green-600" />
                       <h3 className="font-medium text-lg">{plugin.title}</h3>
                     </div>
-                    <p className="text-gray-600 mb-4">{plugin.description}</p>
+                    <p className="text-gray-600 mb-10">{plugin.description}</p>
                     <div className="border-t pt-4">
                       <h4 className="flex items-center gap-2 text-sm font-medium mb-2">
                         <Blocks size={18} className="text-green-600" />
