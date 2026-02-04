@@ -46,20 +46,21 @@ const Navbar = () => {
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#inicio" className="text-sm font-medium hover:text-gray-600 transition-colors">
+            <a href="#inicio" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
               Início
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
             </a>
-            <a href="#projetos" className="text-sm font-medium hover:text-gray-600 transition-colors">
+            <a href="#projetos" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
               Projetos
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
             </a>
-            <a href="#minecraft" className="text-sm font-medium hover:text-gray-600 transition-colors">
-              Minecraft
-            </a>
-            <a href="#sobre" className="text-sm font-medium hover:text-gray-600 transition-colors">
+            <a href="#sobre" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
               Sobre
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
             </a>
-            <a href="#contato" className="text-sm font-medium hover:text-gray-600 transition-colors">
+            <a href="#contato" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
               Contato
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
             </a>
           </nav>
 
@@ -89,19 +90,16 @@ const Navbar = () => {
         {/* Mobile navigation */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 flex flex-col space-y-4 pb-4 animate-fade-in">
-            <a href="#inicio" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
+            <a href="#inicio" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
               Início
             </a>
-            <a href="#projetos" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
+            <a href="#projetos" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
               Projetos
             </a>
-            <a href="#minecraft" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
-              Minecraft
-            </a>
-            <a href="#sobre" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
+            <a href="#sobre" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
               Sobre
             </a>
-            <a href="#contato" className="text-sm font-medium hover:text-gray-600 transition-colors" onClick={toggleMenu}>
+            <a href="#contato" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
               Contato
             </a>
           </nav>
