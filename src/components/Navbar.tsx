@@ -1,24 +1,29 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, FileText } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const navLinks = [
+  { href: "#inicio", label: "Início" },
+  { href: "#projetos", label: "Projetos" },
+  { href: "#sobre", label: "Sobre" },
+  { href: "#contato", label: "Contato" },
+];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
-      
-      setScrollProgress(progress);
+      setScrollProgress((scrollTop / scrollHeight) * 100);
       setIsScrolled(scrollTop > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,84 +31,82 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full z-50 py-4 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md backdrop-blur-lg" : "bg-white/80 backdrop-blur-sm"
+        isScrolled ? "bg-white shadow-sm" : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       {/* Barra de progresso do scroll */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gray-200">
-        <div
-          className="h-1 bg-purple-600 transition-all"
-          style={{ width: `${scrollProgress}%` }}
-        ></div>
+      <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-100">
+        <div className="h-full bg-purple-600 transition-all" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
+
           {/* Logo */}
-          <a href="#" className="text-lg font-medium">
+          <a href="#" className="text-sm font-semibold text-gray-900 hover:text-purple-700 transition-colors">
             giovanni.com
           </a>
 
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#inicio" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
-              Início
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
-            </a>
-            <a href="#projetos" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
-              Projetos
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
-            </a>
-            <a href="#sobre" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
-              Sobre
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
-            </a>
-            <a href="#contato" className="text-sm font-medium hover:text-purple-600 transition-colors relative group">
-              Contato
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full"></span>
-            </a>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors relative group"
+              >
+                {label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full rounded-full" />
+              </a>
+            ))}
           </nav>
 
-          {/* Ícones de Links */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="https://github.com/GiovanniSguizzardi" target="_blank" rel="noopener noreferrer">
-              <Github size={24} className="text-gray-700 hover:text-black transition-colors" />
+          {/* Social links */}
+          <div className="hidden md:flex items-center gap-5">
+            <a href="https://github.com/GiovanniSguizzardi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github size={20} className="text-gray-500 hover:text-gray-900 transition-colors" />
             </a>
-            <a href="https://www.linkedin.com/in/giovanni-sguizzardi/" target="_blank" rel="noopener noreferrer">
-              <Linkedin size={24} className="text-gray-700 hover:text-blue-600 transition-colors" />
+            <a href="https://www.linkedin.com/in/giovanni-sguizzardi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin size={20} className="text-gray-500 hover:text-blue-600 transition-colors" />
             </a>
-            <a href="https://drive.google.com/file/d/1xFnb18ROST6KZlE6aSHyQdBLN74Z2iuU/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-              <FileText size={24} className="text-gray-700 hover:text-purple-600 transition-colors" />
+            <a href="https://drive.google.com/file/d/1xFnb18ROST6KZlE6aSHyQdBLN74Z2iuU/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Currículo">
+              <FileText size={20} className="text-gray-500 hover:text-purple-600 transition-colors" />
             </a>
           </div>
 
-          {/* Botão de menu mobile */}
+          {/* Menu mobile */}
           <button
-            className="md:hidden"
+            className="md:hidden text-gray-700"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        {/* Mobile navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 flex flex-col space-y-4 pb-4 animate-fade-in">
-            <a href="#inicio" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
-              Início
-            </a>
-            <a href="#projetos" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
-              Projetos
-            </a>
-            <a href="#sobre" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
-              Sobre
-            </a>
-            <a href="#contato" className="text-sm font-medium hover:text-purple-600 transition-colors" onClick={toggleMenu}>
-              Contato
-            </a>
-          </nav>
-        )}
+        {/* Mobile nav */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              className="md:hidden flex flex-col gap-4 pt-4 pb-2"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              {navLinks.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={toggleMenu}
+                  className="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

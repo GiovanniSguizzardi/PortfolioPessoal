@@ -49,7 +49,7 @@ const projects: Project[] = [
     title: "PassGuardian",
     description: "PassGuardian é um aplicativo Android de gerenciamento de senhas, desenvolvido para uso pessoal e familiar, com foco em segurança local, simplicidade de uso e boa experiência para usuários não técnicos.",
     category: "Kotlin",
-    image: "https://private-user-images.githubusercontent.com/125572342/533109614-cc44da97-147e-4c60-8393-647f40f8f08c.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI0Nzk5MDgsIm5iZiI6MTc3MjQ3OTYwOCwicGF0aCI6Ii8xMjU1NzIzNDIvNTMzMTA5NjE0LWNjNDRkYTk3LTE0N2UtNGM2MC04MzkzLTY0N2Y0MGY4ZjA4Yy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzAyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMwMlQxOTI2NDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05YjkwMTg5NGQ2Y2VlMzFlZGQ2ODEzMjMzMGEwMGM4ODVkNDZiMTM2NjFmY2NhNDdmYWNhNWU1MTE0ZDU3MTA3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.H3zF0tB97lS7ZubpMc1DSgqmmzs-xxrQRqLBUwLi-f4",
+    image: "https://images.pexels.com/photos/2882630/pexels-photo-2882630.jpeg",
     link: "https://github.com/GiovanniSguizzardi/PassGuardian",
   },
   {
