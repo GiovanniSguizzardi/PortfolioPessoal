@@ -13,7 +13,7 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <motion.span
-            className="inline-block text-sm font-medium text-purple-700 bg-purple-50 border border-purple-100 rounded-full px-3 py-1"
+            className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -22,18 +22,18 @@ const Hero = () => {
           </motion.span>
 
           <motion.h1
-            className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900"
+            className="text-4xl md:text-6xl font-bold tracking-tight text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             Olá, eu sou o{" "}
-            <span className="text-purple-800">Giovanni</span>{" "}
+            <span className="text-primary">Giovanni</span>{" "}
             <span className="inline-block animate-[wiggle_1s_ease-in-out]">👋</span>
           </motion.h1>
 
           <motion.p
-            className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed"
+            className="text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
@@ -49,13 +49,13 @@ const Hero = () => {
           >
             <a
               href="#projetos"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-purple-800 text-white text-sm font-medium hover:bg-purple-700 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Ver Projetos
             </a>
             <a
               href="#contato"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-gray-200 text-gray-700 text-sm font-medium hover:border-purple-300 hover:text-purple-700 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-border text-foreground text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
               Entre em Contato
             </a>
@@ -70,7 +70,7 @@ const Hero = () => {
         transition={{ delay: 1, duration: 0.5 }}
       >
         <a href="#projetos" aria-label="Ver projetos" className="animate-bounce">
-          <ArrowDown className="text-gray-400" />
+          <ArrowDown className="text-muted-foreground" />
         </a>
       </motion.div>
     </section>

@@ -38,15 +38,15 @@ const Contact = () => {
 
   return (
     <AnimatedSection>
-      <section id="contato" className="py-20 bg-gray-50">
+      <section id="contato" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 md:px-10">
 
           <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
-            <span className="inline-block text-sm font-medium text-purple-700 bg-purple-50 border border-purple-100 rounded-full px-3 py-1">
+            <span className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
               Contato
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Entre em Contato</h2>
-            <p className="text-gray-500 leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Entre em Contato</h2>
+            <p className="text-muted-foreground leading-relaxed">
               Tem um projeto em mente? Vamos conversar e transformar sua ideia em realidade.
             </p>
           </div>
@@ -55,28 +55,28 @@ const Contact = () => {
 
             {/* Info */}
             <div className="space-y-5">
-              <div className="flex items-start gap-4 bg-white border border-gray-100 rounded-2xl p-5 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-50 transition-all duration-300">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-purple-50 shrink-0">
-                  <Mail size={18} className="text-purple-700" />
+              <div className="flex items-start gap-4 bg-card border border-border rounded-2xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent shrink-0">
+                  <Mail size={18} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-0.5">Email</h3>
+                  <h3 className="font-semibold text-foreground mb-0.5">Email</h3>
                   <a
                     href="mailto:giovanni.sguiconde@gmail.com"
-                    className="text-sm text-gray-500 hover:text-purple-700 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     giovanni.sguiconde@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 bg-white border border-gray-100 rounded-2xl p-5 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-50 transition-all duration-300">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-purple-50 shrink-0">
-                  <MapPin size={18} className="text-purple-700" />
+              <div className="flex items-start gap-4 bg-card border border-border rounded-2xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent shrink-0">
+                  <MapPin size={18} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-0.5">Localização</h3>
-                  <p className="text-sm text-gray-500">São Paulo, Brasil</p>
+                  <h3 className="font-semibold text-foreground mb-0.5">Localização</h3>
+                  <p className="text-sm text-muted-foreground">São Paulo, Brasil</p>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-white rounded-xl border-gray-200 focus-visible:ring-purple-400"
+                className="bg-card rounded-xl border-border focus-visible:ring-primary"
               />
               <Input
                 type="email"
@@ -98,7 +98,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-white rounded-xl border-gray-200 focus-visible:ring-purple-400"
+                className="bg-card rounded-xl border-border focus-visible:ring-primary"
               />
               <Textarea
                 placeholder="Sua mensagem"
@@ -106,12 +106,12 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="min-h-[120px] bg-white rounded-xl border-gray-200 focus-visible:ring-purple-400"
+                className="min-h-[120px] bg-card rounded-xl border-border focus-visible:ring-primary"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-purple-800 text-white text-sm font-medium hover:bg-purple-700 disabled:opacity-60 transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 disabled:opacity-60 transition-all"
               >
                 <Send size={16} />
                 {loading ? "Enviando..." : "Enviar Mensagem"}

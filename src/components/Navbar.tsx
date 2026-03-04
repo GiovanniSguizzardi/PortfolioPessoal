@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin, FileText } from "lucide-react";
+import { Menu, X, Github, Linkedin, FileText, Sun, Moon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTheme } from "@/components/ThemeProvider";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -31,19 +33,21 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full z-50 py-4 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-sm" : "bg-white/80 backdrop-blur-sm"
+        isScrolled
+          ? "bg-background shadow-sm"
+          : "bg-background/80 backdrop-blur-sm"
       }`}
     >
       {/* Barra de progresso do scroll */}
-      <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-100">
-        <div className="h-full bg-purple-600 transition-all" style={{ width: `${scrollProgress}%` }} />
+      <div className="absolute top-0 left-0 w-full h-0.5 bg-muted">
+        <div className="h-full bg-primary transition-all" style={{ width: `${scrollProgress}%` }} />
       </div>
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#" className="text-sm font-semibold text-gray-900 hover:text-purple-700 transition-colors">
+          <a href="#" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             giovanni.com
           </a>
 
@@ -53,35 +57,62 @@ const Navbar = () => {
               <a
                 key={href}
                 href={href}
-                className="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors relative group"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
               >
                 {label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-600 transition-all group-hover:w-full rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full rounded-full" />
               </a>
             ))}
           </nav>
 
-          {/* Social links */}
+          {/* Social links + Theme toggle */}
           <div className="hidden md:flex items-center gap-5">
+            <button
+              onClick={toggleTheme}
+              aria-label="Alternar tema"
+              className="relative w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-colors hover:bg-muted"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "light" ? (
+                  <motion.div key="sun" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <Sun size={18} />
+                  </motion.div>
+                ) : (
+                  <motion.div key="moon" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <Moon size={18} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
+            <div className="w-px h-4 bg-border" />
             <a href="https://github.com/GiovanniSguizzardi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github size={20} className="text-gray-500 hover:text-gray-900 transition-colors" />
+              <Github size={20} className="text-muted-foreground hover:text-foreground transition-colors" />
             </a>
             <a href="https://www.linkedin.com/in/giovanni-sguizzardi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin size={20} className="text-gray-500 hover:text-blue-600 transition-colors" />
+              <Linkedin size={20} className="text-muted-foreground hover:text-primary transition-colors" />
             </a>
             <a href="https://drive.google.com/file/d/1xFnb18ROST6KZlE6aSHyQdBLN74Z2iuU/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Currículo">
-              <FileText size={20} className="text-gray-500 hover:text-purple-600 transition-colors" />
+              <FileText size={20} className="text-muted-foreground hover:text-primary transition-colors" />
             </a>
           </div>
 
           {/* Menu mobile */}
-          <button
-            className="md:hidden text-gray-700"
-            onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex md:hidden items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              aria-label="Alternar tema"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              className="text-foreground"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile nav */}
@@ -99,7 +130,7 @@ const Navbar = () => {
                   key={href}
                   href={href}
                   onClick={toggleMenu}
-                  className="text-sm font-medium text-gray-600 hover:text-purple-700 transition-colors"
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
                   {label}
                 </a>
