@@ -34,6 +34,24 @@ const experiences: Experience[] = [
     ],
     technologies: ["APIs REST", "Python", "Automação", "IA", "Suporte Técnico"],
   },
+  {
+    id: 2,
+    role: "Técnico em TI",
+    company: "Castle House",
+    type: "Freelancer",
+    period: "Anterior",
+    location: "São Paulo, Brasil",
+    description:
+      "Prestação de serviços de suporte técnico e infraestrutura de TI para a imobiliária Castle House. Responsável pela manutenção preventiva e corretiva de equipamentos, configuração de redes e estações de trabalho, além de garantir a continuidade operacional do ambiente tecnológico da empresa. Atuação direta com os colaboradores para diagnóstico e resolução ágil de problemas, assegurando produtividade e estabilidade dos sistemas internos.",
+    highlights: [
+      "Manutenção preventiva e corretiva de computadores e periféricos",
+      "Configuração e gerenciamento de redes locais e Wi-Fi",
+      "Instalação e atualização de softwares e sistemas operacionais",
+      "Atendimento e suporte direto aos colaboradores da imobiliária",
+      "Diagnóstico e resolução de problemas de hardware e software",
+    ],
+    technologies: ["Redes", "Windows", "Hardware", "Suporte Técnico", "Infraestrutura"],
+  },
 ];
 
 const containerVariants = {
