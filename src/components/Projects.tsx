@@ -44,7 +44,7 @@ const projects: Project[] = [
     image: "https://images.pexels.com/photos/4440788/pexels-photo-4440788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "https://github.com/GiovanniSguizzardi/SistemaGerencidorProcessosAduaneiros",
   },
-    {
+  {
     id: 5,
     title: "PassGuardian",
     description: "PassGuardian é um aplicativo Android de gerenciamento de senhas, desenvolvido para uso pessoal e familiar, com foco em segurança local, simplicidade de uso e boa experiência para usuários não técnicos.",
@@ -64,56 +64,57 @@ const projects: Project[] = [
 
 const Projects = () => {
   return (
-  <AnimatedSection>
-    <section id="projetos" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-10">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Projetos Selecionados</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project) => (
-            <Card key={project.id} className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow group">
-              <CardContent className="p-0">
-                <div className="relative">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-60 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-white flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors"
-                    >
-                      Ver Detalhes <ArrowRight size={20} />
-                    </a>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="text-sm text-gray-500 mb-2">{project.category}</div>
-                  <h3 className="font-medium text-lg mb-2">{project.title}</h3>
-                  <p className="text-gray-600">{project.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+    <AnimatedSection>
+      <section id="projetos" className="py-20 bg-secondary">
+        <div className="container mx-auto px-4 md:px-10">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Projetos Selecionados</h2>
+          </div>
 
-        <div className="mt-5 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {projects.map((project) => (
+              <Card key={project.id} className="overflow-hidden border-border shadow-sm hover:shadow-md transition-shadow group bg-card">
+                <CardContent className="p-0">
+                  <div className="relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-60 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors"
+                      >
+                        Ver Detalhes <ArrowRight size={20} />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="text-sm text-muted-foreground mb-2">{project.category}</div>
+                    <h3 className="font-medium text-lg mb-2 text-foreground">{project.title}</h3>
+                    <p className="text-muted-foreground">{project.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-5 text-center">
             <a
               href="https://github.com/GiovanniSguizzardi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 text-lg font-semibold text-white bg-purple-900 rounded-full hover:bg-purple-600 transition-transform transform hover:scale-105 shadow-lg">
-              <Github size={24} className="text-white" />
+              className="inline-flex items-center gap-3 px-6 py-3 text-lg font-semibold text-primary-foreground bg-primary rounded-full hover:opacity-90 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <Github size={24} />
               Ver mais no GitHub
             </a>
           </div>
-      </div>
-    </section>
+        </div>
+      </section>
     </AnimatedSection>
   );
 };

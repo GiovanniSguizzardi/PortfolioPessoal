@@ -45,14 +45,14 @@ const About = () => {
 
             {/* Texto */}
             <div className="space-y-6">
-              <span className="inline-block text-sm font-medium text-purple-700 bg-purple-50 border border-purple-100 rounded-full px-3 py-1">
+              <span className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
                 Sobre Mim
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
                 Desenvolvendo soluções{" "}
-                <span className="text-purple-800">eficientes e escaláveis</span>
+                <span className="text-primary">eficientes e escaláveis</span>
               </h2>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   Olá! Me chamo Giovanni — formado em Análise e Desenvolvimento de Sistemas e cursando
                   Sistemas de Informação. Sou apaixonado por tecnologia e pela criação de soluções que
@@ -69,12 +69,12 @@ const About = () => {
               </div>
               <div className="flex gap-10 pt-2">
                 <div>
-                  <p className="text-3xl font-bold text-purple-800">2+</p>
-                  <p className="text-sm text-gray-500">Anos de experiência</p>
+                  <p className="text-3xl font-bold text-primary">2+</p>
+                  <p className="text-sm text-muted-foreground">Anos de experiência</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-purple-800">6+</p>
-                  <p className="text-sm text-gray-500">Projetos entregues</p>
+                  <p className="text-3xl font-bold text-primary">6+</p>
+                  <p className="text-sm text-muted-foreground">Projetos entregues</p>
                 </div>
               </div>
             </div>
@@ -91,13 +91,13 @@ const About = () => {
                 <motion.div
                   key={title}
                   variants={cardVariants}
-                  className="group bg-white border border-gray-100 rounded-2xl p-5 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-50 transition-all duration-300"
+                  className="group bg-card border border-border rounded-2xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                 >
-                  <div className="mb-3 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-purple-50 group-hover:bg-purple-100 transition-colors">
-                    <Icon size={20} className="text-purple-700" />
+                  <div className="mb-3 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent group-hover:bg-primary/10 transition-colors">
+                    <Icon size={20} className="text-primary" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
+                  <h3 className="font-semibold text-foreground mb-1">{title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
                 </motion.div>
               ))}
             </motion.div>

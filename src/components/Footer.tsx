@@ -5,10 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 border-t border-gray-100">
+    <footer className="py-8 border-t border-border">
       <div className="container mx-auto px-4 md:px-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             © {currentYear} Giovanni Sguizzardi. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-5">
@@ -17,7 +17,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-gray-400 hover:text-gray-900 transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <Github size={18} />
             </a>
@@ -26,7 +26,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-gray-400 hover:text-blue-600 transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Linkedin size={18} />
             </a>
@@ -35,7 +35,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Currículo"
-              className="text-gray-400 hover:text-purple-600 transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors"
             >
               <FileText size={18} />
             </a>
