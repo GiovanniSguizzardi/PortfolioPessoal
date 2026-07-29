@@ -5,8 +5,10 @@ import About from "@/components/About";
 import Career from "@/components/Career";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useWebMCP } from "@/hooks/useWebMCP";
 
 const Index = () => {
+  useWebMCP();
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Navbar />
