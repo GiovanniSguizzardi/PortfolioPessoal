@@ -1,4 +1,4 @@
-# robots.txt — https://portifolio-minimalista.lovable.app
+# robots.txt — https://giovanni-dev.onrender.com/
 # RFC 9309
 
 Content-Signal: ai-train=no, search=yes, ai-input=yes
