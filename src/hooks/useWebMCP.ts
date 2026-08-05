@@ -9,7 +9,7 @@ type WebMCPTool = {
 
 const text = (value: string) => ({ content: [{ type: "text", text: value }] });
 
-const SECTIONS = ["inicio", "sobre", "projetos", "carreira", "contato"];
+const SECTIONS = ["inicio", "sobre", "projetos", "projetos-faculdade", "carreira", "contato"];
 
 /**
  * Exposes site actions to AI agents via the WebMCP API.
