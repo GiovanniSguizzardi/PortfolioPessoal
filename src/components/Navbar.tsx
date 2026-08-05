@@ -92,7 +92,7 @@ const Navbar = () => {
             <a href="https://www.linkedin.com/in/giovanni-sguizzardi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin size={20} className="text-muted-foreground hover:text-primary transition-colors" />
             </a>
-            <a href="https://drive.google.com/file/d/1x3hE6GPWCDW86UNaejmbQdnD6nykBp9y/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Currículo">
+            <a href="https://drive.google.com/file/d/15XR2_a9nxo064T4xfB4xS1zoFsbizlpn/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Currículo">
               <FileText size={20} className="text-muted-foreground hover:text-primary transition-colors" />
             </a>
           </div>
