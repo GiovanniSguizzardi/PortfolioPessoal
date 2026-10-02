@@ -3,14 +3,16 @@ import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, FileText, Sun, Moon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "@/components/ThemeProvider";
+import { useLanguage } from "@/components/LanguageProvider";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#projetos-faculdade", label: "Faculdade" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#carreira", label: "Carreira" },
-  { href: "#contato", label: "Contato" },
+  { href: "#inicio", label: { pt: "Início", en: "Home", es: "Inicio" } },
+  { href: "#projetos", label: { pt: "Projetos", en: "Projects", es: "Proyectos" } },
+  { href: "#projetos-faculdade", label: { pt: "Faculdade", en: "University", es: "Universidad" } },
+  { href: "#sobre", label: { pt: "Sobre", en: "About", es: "Sobre mí" } },
+  { href: "#carreira", label: { pt: "Carreira", en: "Career", es: "Carrera" } },
+  { href: "#contato", label: { pt: "Contato", en: "Contact", es: "Contacto" } },
 ];
 
 const Navbar = () => {
@@ -18,6 +20,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
+  const themeLabel = t({ pt: "Alternar tema", en: "Toggle theme", es: "Cambiar tema" });
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -40,7 +44,6 @@ const Navbar = () => {
           : "bg-background/80 backdrop-blur-sm"
       }`}
     >
-      {/* Barra de progresso do scroll */}
       <div className="absolute top-0 left-0 w-full h-0.5 bg-muted">
         <div className="h-full bg-primary transition-all" style={{ width: `${scrollProgress}%` }} />
       </div>
@@ -48,12 +51,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
 
-          {/* Logo */}
           <a href="#" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
             giovanni.com
           </a>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map(({ href, label }) => (
               <a
@@ -61,17 +62,17 @@ const Navbar = () => {
                 href={href}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
               >
-                {label}
+                {t(label)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full rounded-full" />
               </a>
             ))}
           </nav>
 
-          {/* Social links + Theme toggle */}
           <div className="hidden md:flex items-center gap-5">
+            <LanguageSwitcher />
             <button
               onClick={toggleTheme}
-              aria-label="Alternar tema"
+              aria-label={themeLabel}
               className="relative w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-colors hover:bg-muted"
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -93,16 +94,16 @@ const Navbar = () => {
             <a href="https://www.linkedin.com/in/giovanni-sguizzardi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin size={20} className="text-muted-foreground hover:text-primary transition-colors" />
             </a>
-            <a href="https://drive.google.com/file/d/15XR2_a9nxo064T4xfB4xS1zoFsbizlpn/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Currículo">
+            <a href="https://drive.google.com/file/d/15XR2_a9nxo064T4xfB4xS1zoFsbizlpn/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label={t({ pt: "Currículo", en: "Resume", es: "Currículum" })}>
               <FileText size={20} className="text-muted-foreground hover:text-primary transition-colors" />
             </a>
           </div>
 
-          {/* Menu mobile */}
           <div className="flex md:hidden items-center gap-3">
+            <LanguageSwitcher />
             <button
               onClick={toggleTheme}
-              aria-label="Alternar tema"
+              aria-label={themeLabel}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
@@ -117,7 +118,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile nav */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
@@ -134,7 +134,7 @@ const Navbar = () => {
                   onClick={toggleMenu}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {label}
+                  {t(label)}
                 </a>
               ))}
             </motion.nav>

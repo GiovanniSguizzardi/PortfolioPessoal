@@ -1,8 +1,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section id="inicio" className="min-h-screen flex flex-col justify-center pt-16">
       <div className="container mx-auto px-4 md:px-6">
@@ -27,7 +29,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Olá, eu sou o{" "}
+            {t({ pt: "Olá, eu sou o", en: "Hi, I'm", es: "Hola, soy" })}{" "}
             <span className="text-primary">Giovanni</span>{" "}
             <span className="inline-block animate-[wiggle_1s_ease-in-out]">👋</span>
           </motion.h1>
@@ -38,7 +40,11 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            Criando experiências digitais elegantes e funcionais com foco em design minimalista e usabilidade.
+            {t({
+              pt: "Criando experiências digitais elegantes e funcionais com foco em design minimalista e usabilidade.",
+              en: "Building elegant, functional digital experiences focused on minimalist design and usability.",
+              es: "Creando experiencias digitales elegantes y funcionales con enfoque en diseño minimalista y usabilidad.",
+            })}
           </motion.p>
 
           <motion.div
@@ -51,13 +57,13 @@ const Hero = () => {
               href="#projetos"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
             >
-              Ver Projetos
+              {t({ pt: "Ver Projetos", en: "View Projects", es: "Ver Proyectos" })}
             </a>
             <a
               href="#contato"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-border text-foreground text-sm font-medium hover:border-primary hover:text-primary transition-colors"
             >
-              Entre em Contato
+              {t({ pt: "Entre em Contato", en: "Get in Touch", es: "Contáctame" })}
             </a>
           </motion.div>
         </motion.div>
@@ -69,7 +75,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        <a href="#projetos" aria-label="Ver projetos" className="animate-bounce">
+        <a href="#projetos" aria-label={t({ pt: "Ver projetos", en: "View projects", es: "Ver proyectos" })} className="animate-bounce">
           <ArrowDown className="text-muted-foreground" />
         </a>
       </motion.div>
