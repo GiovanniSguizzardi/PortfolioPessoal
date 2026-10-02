@@ -6,9 +6,11 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
@@ -27,10 +29,10 @@ const Contact = () => {
         { name: formData.name, email: formData.email, message: formData.message },
         "UODqeW9UiHWPzlvao"
       );
-      toast({ title: "Mensagem enviada", description: "Obrigado pelo seu contato. Retornarei em breve!" });
+      toast({ title: t({ pt: "Mensagem enviada", en: "Message sent", es: "Mensaje enviado" }), description: t({ pt: "Obrigado pelo seu contato. Retornarei em breve!", en: "Thanks for reaching out. I'll get back to you soon!", es: "¡Gracias por tu mensaje. Te responderé pronto!" }) });
       setFormData({ name: "", email: "", message: "" });
     } catch {
-      toast({ title: "Erro", description: "Não foi possível enviar sua mensagem.", variant: "destructive" });
+      toast({ title: t({ pt: "Erro", en: "Error", es: "Error" }), description: t({ pt: "Não foi possível enviar sua mensagem.", en: "Your message could not be sent.", es: "No se pudo enviar tu mensaje." }), variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -43,11 +45,11 @@ const Contact = () => {
 
           <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
             <span className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
-              Contato
+              {t({ pt: "Contato", en: "Contact", es: "Contacto" })}
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Entre em Contato</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t({ pt: "Entre em Contato", en: "Get in Touch", es: "Ponte en Contacto" })}</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Tem um projeto em mente? Vamos conversar e transformar sua ideia em realidade.
+              {t({ pt: "Tem um projeto em mente? Vamos conversar e transformar sua ideia em realidade.", en: "Have a project in mind? Let's talk and turn your idea into reality.", es: "¿Tienes un proyecto en mente? Hablemos y hagamos realidad tu idea." })}
             </p>
           </div>
 
@@ -75,8 +77,8 @@ const Contact = () => {
                   <MapPin size={18} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-0.5">Localização</h3>
-                  <p className="text-sm text-muted-foreground">São Paulo, Brasil</p>
+                  <h3 className="font-semibold text-foreground mb-0.5">{t({ pt: "Localização", en: "Location", es: "Ubicación" })}</h3>
+                  <p className="text-sm text-muted-foreground">{t({ pt: "São Paulo, Brasil", en: "São Paulo, Brazil", es: "São Paulo, Brasil" })}</p>
                 </div>
               </div>
             </div>
@@ -84,7 +86,7 @@ const Contact = () => {
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                placeholder="Seu nome"
+                placeholder={t({ pt: "Seu nome", en: "Your name", es: "Tu nombre" })}
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -93,7 +95,7 @@ const Contact = () => {
               />
               <Input
                 type="email"
-                placeholder="Seu email"
+                placeholder={t({ pt: "Seu email", en: "Your email", es: "Tu correo" })}
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -101,7 +103,7 @@ const Contact = () => {
                 className="bg-card rounded-xl border-border focus-visible:ring-primary"
               />
               <Textarea
-                placeholder="Sua mensagem"
+                placeholder={t({ pt: "Sua mensagem", en: "Your message", es: "Tu mensaje" })}
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
@@ -114,7 +116,7 @@ const Contact = () => {
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 disabled:opacity-60 transition-all"
               >
                 <Send size={16} />
-                {loading ? "Enviando..." : "Enviar Mensagem"}
+                {loading ? t({ pt: "Enviando...", en: "Sending...", es: "Enviando..." }) : t({ pt: "Enviar Mensagem", en: "Send Message", es: "Enviar Mensaje" })}
               </button>
             </form>
 

@@ -1,7 +1,9 @@
 
+import { useLanguage } from "@/components/LanguageProvider";
 import { Github, Linkedin, FileText } from "lucide-react";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -9,7 +11,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Giovanni Sguizzardi. Todos os direitos reservados.
+            © {currentYear} Giovanni Sguizzardi. {t({ pt: "Todos os direitos reservados.", en: "All rights reserved.", es: "Todos los derechos reservados." })}
           </p>
           <div className="flex items-center gap-5">
             <a
