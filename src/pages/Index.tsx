@@ -7,11 +7,13 @@ import Career from "@/components/Career";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useWebMCP } from "@/hooks/useWebMCP";
+import Seo from "@/components/Seo";
 
 const Index = () => {
   useWebMCP();
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      <Seo />
       <Navbar />
       <Hero />
       <Projects />
