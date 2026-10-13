@@ -1,5 +1,4 @@
 
-import { motion } from "framer-motion";
 import { Briefcase, Calendar, MapPin, ChevronRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage, T } from "@/components/LanguageProvider";
@@ -81,23 +80,12 @@ const experiences: Experience[] = [
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
-
 const Career = () => {
   const { t } = useLanguage();
   return (
-    <AnimatedSection>
       <section id="carreira" className="py-20 overflow-hidden">
         <div className="container mx-auto px-4 md:px-10">
-          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-14 space-y-3">
             <span className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
               {t({ pt: "Carreira", en: "Career", es: "Carrera" })}
             </span>
@@ -111,21 +99,15 @@ const Career = () => {
                 es: "Mi trayectoria profesional y las empresas donde contribuí con soluciones reales.",
               })}
             </p>
-          </div>
+          </AnimatedSection>
 
-          <motion.div
-            className="max-w-3xl mx-auto relative"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
+          <div className="max-w-3xl mx-auto relative">
             <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-border" />
 
             {experiences.map((exp) => (
-              <motion.div
+              <AnimatedSection
                 key={exp.id}
-                variants={itemVariants}
+                direction="left"
                 className="relative pl-16 md:pl-20 pb-12 last:pb-0 group"
               >
                 <div className="absolute left-4 md:left-6 top-1 w-4 h-4 rounded-full border-[3px] border-primary bg-background group-hover:bg-primary transition-colors duration-300 z-10" />
@@ -184,12 +166,11 @@ const Career = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </AnimatedSection>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
-    </AnimatedSection>
   );
 };
 

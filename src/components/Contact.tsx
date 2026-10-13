@@ -39,11 +39,10 @@ const Contact = () => {
   };
 
   return (
-    <AnimatedSection>
       <section id="contato" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 md:px-10">
 
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-12 space-y-3">
             <span className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
               {t({ pt: "Contato", en: "Contact", es: "Contacto" })}
             </span>
@@ -51,12 +50,12 @@ const Contact = () => {
             <p className="text-muted-foreground leading-relaxed">
               {t({ pt: "Tem um projeto em mente? Vamos conversar e transformar sua ideia em realidade.", en: "Have a project in mind? Let's talk and turn your idea into reality.", es: "¿Tienes un proyecto en mente? Hablemos y hagamos realidad tu idea." })}
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
 
             {/* Info */}
-            <div className="space-y-5">
+            <AnimatedSection className="space-y-5" direction="left">
               <div className="flex items-start gap-4 bg-card border border-border rounded-2xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent shrink-0">
                   <Mail size={18} className="text-primary" />
@@ -81,9 +80,10 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground">{t({ pt: "São Paulo, Brasil", en: "São Paulo, Brazil", es: "São Paulo, Brasil" })}</p>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Form */}
+            <AnimatedSection direction="right" delay={0.1}>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 placeholder={t({ pt: "Seu nome", en: "Your name", es: "Tu nombre" })}
@@ -119,11 +119,11 @@ const Contact = () => {
                 {loading ? t({ pt: "Enviando...", en: "Sending...", es: "Enviando..." }) : t({ pt: "Enviar Mensagem", en: "Send Message", es: "Enviar Mensaje" })}
               </button>
             </form>
+            </AnimatedSection>
 
           </div>
         </div>
       </section>
-    </AnimatedSection>
   );
 };
 

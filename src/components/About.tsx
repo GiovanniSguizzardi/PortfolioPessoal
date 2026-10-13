@@ -1,5 +1,4 @@
 
-import { motion } from "framer-motion";
 import { Code, Container, Database, Server } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -43,25 +42,14 @@ const skills = [
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
-};
-
 const About = () => {
   const { t } = useLanguage();
   return (
-    <AnimatedSection>
       <section id="sobre" className="py-20 overflow-hidden">
         <div className="container mx-auto px-4 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-            <div className="space-y-6">
+            <AnimatedSection className="space-y-6" direction="left">
               <span className="inline-block text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
                 {t({ pt: "Sobre Mim", en: "About Me", es: "Sobre Mí" })}
               </span>
@@ -108,19 +96,13 @@ const About = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              {skills.map(({ icon: Icon, title, description }) => (
-                <motion.div
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {skills.map(({ icon: Icon, title, description }, index) => (
+                <AnimatedSection
                   key={title.pt}
-                  variants={cardVariants}
+                  delay={(index % 2) * 0.1}
                   className="group bg-card border border-border rounded-2xl p-5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                 >
                   <div className="mb-3 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent group-hover:bg-primary/10 transition-colors">
@@ -128,14 +110,13 @@ const About = () => {
                   </div>
                   <h3 className="font-semibold text-foreground mb-1">{t(title)}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{t(description)}</p>
-                </motion.div>
+                </AnimatedSection>
               ))}
-            </motion.div>
+            </div>
 
           </div>
         </div>
       </section>
-    </AnimatedSection>
   );
 };
 

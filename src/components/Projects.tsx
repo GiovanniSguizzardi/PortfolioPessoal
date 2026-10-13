@@ -98,18 +98,18 @@ const projects: Project[] = [
 const Projects = () => {
   const { t } = useLanguage();
   return (
-    <AnimatedSection>
       <section id="projetos" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 md:px-10">
-          <div className="max-w-3xl mx-auto text-center mb-10">
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               {t({ pt: "Projetos Selecionados", en: "Selected Projects", es: "Proyectos Seleccionados" })}
             </h2>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {projects.map((project) => (
-              <Card key={project.id} className="overflow-hidden border-border shadow-sm hover:shadow-md transition-shadow group bg-card">
+            {projects.map((project, index) => (
+              <AnimatedSection key={project.id} delay={(index % 2) * 0.1} className="h-full">
+              <Card className="h-full overflow-hidden border-border shadow-sm hover:shadow-md transition-shadow group bg-card">
                 <CardContent className="p-0">
                   <div className="relative">
                     <img
@@ -135,10 +135,11 @@ const Projects = () => {
                   </div>
                 </CardContent>
               </Card>
+              </AnimatedSection>
             ))}
           </div>
 
-          <div className="mt-5 text-center">
+          <AnimatedSection className="mt-5 text-center">
             <a
               href="https://github.com/GiovanniSguizzardi"
               target="_blank"
@@ -148,10 +149,9 @@ const Projects = () => {
               <Github size={24} />
               {t({ pt: "Ver mais no GitHub", en: "See more on GitHub", es: "Ver más en GitHub" })}
             </a>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
-    </AnimatedSection>
   );
 };
 
