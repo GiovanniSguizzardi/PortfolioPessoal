@@ -1,18 +1,29 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "left" | "right";
 }
 
-const AnimatedSection = ({ children }: AnimatedSectionProps) => {
+const AnimatedSection = ({ children, className, delay = 0, direction = "up" }: AnimatedSectionProps) => {
+  const reducedMotion = useReducedMotion();
+  const offset = direction === "up" ? { y: 24, x: 0 } : { y: 0, x: direction === "left" ? -24 : 24 };
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }} // Começa invisível e abaixo
-      whileInView={{ opacity: 1, y: 0 }} // Anima quando entra na tela
-      exit={{ opacity: 0, y: 50 }} // Some quando sai da tela
-      transition={{ duration: 0.6, ease: "easeOut" }} // Transição suave
-      viewport={{ amount: 0.2 }} // Ativa animação ao passar 20% na tela
+      className={className}
+      data-scroll-reveal=""
+      initial={reducedMotion ? false : { opacity: 0, ...offset }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      onFocusCapture={(event) => {
+        // Keyboard navigation must never land on visually hidden content.
+        event.currentTarget.style.opacity = "1";
+        event.currentTarget.style.transform = "none";
+      }}
+      transition={reducedMotion ? { duration: 0 } : { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, amount: 0.08, margin: "0px 0px -24px 0px" }}
     >
       {children}
     </motion.div>
