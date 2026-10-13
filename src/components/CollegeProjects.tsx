@@ -81,10 +81,9 @@ const collegeProjects: CollegeProject[] = [
 const CollegeProjects = () => {
   const { t } = useLanguage();
   return (
-    <AnimatedSection>
       <section id="projetos-faculdade" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 md:px-10">
-          <div className="max-w-3xl mx-auto text-center mb-10 space-y-3">
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-10 space-y-3">
             <span className="inline-flex items-center gap-2 text-sm font-medium text-primary bg-accent border border-border rounded-full px-3 py-1">
               <GraduationCap size={14} />
               {t({ pt: "Projetos Acadêmicos", en: "Academic Projects", es: "Proyectos Académicos" })}
@@ -99,13 +98,13 @@ const CollegeProjects = () => {
                 es: "Experiencias prácticas desarrolladas en colaboración con empresas durante la carrera.",
               })}
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {collegeProjects.map((project) => (
+            {collegeProjects.map((project, index) => (
+              <AnimatedSection key={project.id} delay={(index % 2) * 0.1} className="h-full">
               <Card
-                key={project.id}
-                className="overflow-hidden border-border shadow-sm hover:shadow-md transition-shadow group bg-card"
+                className="h-full overflow-hidden border-border shadow-sm hover:shadow-md transition-shadow group bg-card"
               >
                 <CardContent className="p-0">
                   <div className="relative">
@@ -153,11 +152,11 @@ const CollegeProjects = () => {
                   </div>
                 </CardContent>
               </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
-    </AnimatedSection>
   );
 };
 
